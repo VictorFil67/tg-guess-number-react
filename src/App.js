@@ -29,6 +29,28 @@ export const App = () => {
     setGuess(e.target.value);
   };
 
+  const startGame = () => {
+    axios
+      .post("/start_game")
+      .then(() => {
+        setResult("");
+        setGuess("");
+        setGameStarted(true);
+      })
+      .catch((err) => console.error(err));
+  };
+
+  const submitGuess = () => {
+    axios
+      .post("/guess", { guess: parseInt(guess) })
+      .then((response) => {
+        setResult(response.data.result);
+        if (response.data.result === "Число вгадано") {
+          setGameStarted(false);
+        }
+      })
+      .catch((err) => console.error(err));
+  };
   const handleClose = () => {
     tg.close();
   };
@@ -37,11 +59,11 @@ export const App = () => {
     <div className="App">
       <h1>Вгадай число</h1>
       {!gameStarted ? (
-        <button>Почати гру</button>
+        <button onClick={startGame}>Почати гру</button>
       ) : (
         <>
           <input type="number" value={guess} onChange={handleInputChange} />
-          <button>Відправити</button>
+          <button onClick={submitGuess}>Відправити</button>
         </>
       )}
       {result && <p>{result}</p>}
