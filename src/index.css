@@ -28,3 +28,50 @@ li {
 * {
   box-sizing: border-box;
 }
+h1 {
+  color: blueviolet;
+  margin-top: 30px;
+}
+button {
+  padding: 10px;
+  border-radius: 15px;
+  margin: 5px;
+  color: yellow;
+  /* border: 1px solid rgb(46, 46, 165); */
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+button:hover,
+button:active {
+  transform: scale(1.1);
+}
+
+.start {
+  background-color: green;
+}
+.close {
+  background-color: red;
+}
+.send {
+  background-color: skyblue;
+}
+.number {
+  border-radius: 15px;
+  background-color: beige;
+  border: 1px solid rgb(181, 202, 88);
+  padding: 8px;
+  outline: none;
+  color: blue;
+  width: 100px;
+  text-align: center;
+}
+.equal {
+  color: green;
+}
+.low {
+  color: blue;
+}
+.big {
+  color: red;
+}

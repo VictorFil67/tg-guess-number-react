@@ -66,16 +66,40 @@ export const App = () => {
     <div className="App">
       <h1>Вгадай число</h1>
       {!gameStarted ? (
-        <button onClick={startGame}>Почати гру</button>
+        <button onClick={startGame} className="start">
+          Почати гру
+        </button>
       ) : (
         <>
-          <input type="number" value={guess} onChange={handleInputChange} />
-          <button onClick={submitGuess}>Відправити</button>
+          <input
+            type="number"
+            value={guess}
+            onChange={handleInputChange}
+            className="number"
+            placeholder="Ваше число"
+          />
+          <button onClick={submitGuess} className="send">
+            Відправити
+          </button>
         </>
       )}
-      {result && <p>{result}</p>}
+      {result && (
+        <p
+          className={
+            result === "Число вгадано!"
+              ? "equal"
+              : result === "Загадане число менше"
+              ? "low"
+              : "big"
+          }
+        >
+          {result}
+        </p>
+      )}
       {attempts > 0 && <p>Ви зробили спроб: {attempts}</p>}
-      <button onClick={handleClose}>Закрити гру</button>
+      <button onClick={handleClose} className="close">
+        Закрити гру
+      </button>
     </div>
   );
 };
