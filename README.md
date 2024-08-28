@@ -1,70 +1,61 @@
-# Getting Started with Create React App
+# Guess the Number Game
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Опис
 
-## Available Scripts
+Це гра "Вгадай число", яка працює як міні-додаток у Telegram-боті з використанням WebView. Гравець повинен вгадати випадкове число, згенероване сервером, надаючи свої спроби через інтерфейс React.js.
 
-In the project directory, you can run:
+## Технології
 
-### `npm start`
+- **Front-end:** React.js
+- **Back-end:** Node.js (Express.js)
+- **База даних:** немає (гра зберігає стан у пам'яті сервера)
+- **Деплой:** gh-pages, render.com
+- **Telegram API:** `node-telegram-bot-api`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Вимоги
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- Node.js (версія 14 або новіше)
+- npm або yarn
+- Обліковий запис на render.com
+- Обліковий запис Telegram для створення бота
 
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Підготовка оточення
+   Встановіть Node.js і npm (якщо ще не встановлено).
+2. Створення нового проекту
+   Створіть новий проект у GitHub та клонуйте його на локальний комп'ютер.
+   Створіть структуру папок для фронтенду та бекенду.
+3. Налаштування фронтенду (React.js)
+   Перейдіть до папки фронтенду та ініціалізуйте новий React-проект.
+   Створіть компоненти:
+   Компонент для введення числа.
+   Компонент відображає результат спроби.
+   Компонент кнопки для надсилання числа.
+   Налаштуйте обробники подій для надсилання даних на сервер та отримання відповіді від API.
+4. Налаштування бекенда (Node.js та Express)
+   Перейдіть до папки бекенда ініціалізуйте новий проект Node.js.
+   Встановіть потрібні залежності.
+   Налаштуйте Express-сервер із двома API-ендпоінтами:
+   /start_game для створення випадкового числа.
+   /guess для обробки спроб користувача.
+   Налаштуйте збереження випадкового числа в оперативній пам'яті.
+5. Створення Telegram-бота
+   Створіть новий Telegram-бот за допомогою BotFather і отримайте API-токен.
+   Встановіть бібліотеку node-telegram-bot-api для взаємодії з Telegram API.
+   Налаштуйте сервер для обробки повідомлень від бота та взаємодії з API-іграми.
+6. Інтеграція Telegram-бота з грою
+   Налаштуйте Webhook для Telegram-бота на сервері, щоб бот міг обробляти повідомлення та надсилати дані в гру.
+   Забезпечте зв'язок між фронтендом та бекендом через WebView. Бот відкриватиме гру в браузері або програмі за допомогою вбудованого WebView.
+7. Тестування програми
+   Перевірте гру локально, запустивши сервер та клієнтську частину.
+   Тестуйте API-запити з фронтенду та переконайтеся, що вони коректно обробляються сервером.
+8. Підготовка до деплою
+   Налаштуйте файл .env для зберігання змінних оточення, таких як токен бота та URL бази даних (якщо використовується).
+9. Деплой на render.com
+   Авторизуйтесь на render.com та оберіть репозиторій на github.
+   Налаштуйте змінні оточення.
+   Вкажіть отриману від render.com URL у клієнтській частині програми.
+   Переконайтеся, що програма працює коректно, і бот взаємодіє із сервером через той же URL.
+10. Підтримка та оновлення
+    Додайте документацію в README.md з інструкціями щодо запуску та використання.
+    Регулярно оновлюйте код та залежності, щоб підтримувати актуальність проекту.
+    Слідкуйте за відгуками користувачів та вносьте покращення в гру.
