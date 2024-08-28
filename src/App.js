@@ -33,7 +33,7 @@ export const App = () => {
 
   const startGame = () => {
     axios
-      .post("http://localhost:5000/start_game")
+      .post("https://tg-guess-number-node.onrender.com/start_game")
       .then(() => {
         setResult("");
         setGuess("");
@@ -45,7 +45,9 @@ export const App = () => {
 
   const submitGuess = () => {
     axios
-      .post("http://localhost:5000/guess", { guess: parseInt(guess) })
+      .post("https://tg-guess-number-node.onrender.com/guess", {
+        guess: parseInt(guess),
+      })
       .then((response) => {
         setResult(response.data.result);
 
