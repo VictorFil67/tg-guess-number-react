@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/tg-guess-number-react/static/css/main.4424b907.css",
-    "main.js": "/tg-guess-number-react/static/js/main.f4f0e88c.js",
+    "main.css": "/tg-guess-number-react/static/css/main.ff7589d4.css",
+    "main.js": "/tg-guess-number-react/static/js/main.35ce7674.js",
     "index.html": "/tg-guess-number-react/index.html",
-    "main.4424b907.css.map": "/tg-guess-number-react/static/css/main.4424b907.css.map",
-    "main.f4f0e88c.js.map": "/tg-guess-number-react/static/js/main.f4f0e88c.js.map"
+    "main.ff7589d4.css.map": "/tg-guess-number-react/static/css/main.ff7589d4.css.map",
+    "main.35ce7674.js.map": "/tg-guess-number-react/static/js/main.35ce7674.js.map"
   },
   "entrypoints": [
-    "static/css/main.4424b907.css",
-    "static/js/main.f4f0e88c.js"
+    "static/css/main.ff7589d4.css",
+    "static/js/main.35ce7674.js"
   ]
 }
