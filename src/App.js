@@ -11,11 +11,12 @@ export const App = () => {
   const [gameStarted, setGameStarted] = useState(false);
 
   useEffect(() => {
-    // Инициализация Telegram WebApp SDK
+    console.log(gameStarted);
+  }, [gameStarted]);
 
+  useEffect(() => {
     tg.ready();
 
-    // Ожидаем закрытие WebApp
     tg.onEvent("web_app_close", () => {
       console.log("WebApp closed");
     });
@@ -36,6 +37,7 @@ export const App = () => {
         setResult("");
         setGuess("");
         setGameStarted(true);
+        console.log(gameStarted);
       })
       .catch((err) => console.error(err));
   };
@@ -45,7 +47,8 @@ export const App = () => {
       .post("http://localhost:5000/guess", { guess: parseInt(guess) })
       .then((response) => {
         setResult(response.data.result);
-        if (response.data.result === "Число вгадано") {
+        console.log(response);
+        if (response.data.result === "Число вгадано!") {
           setGameStarted(false);
         }
       })
