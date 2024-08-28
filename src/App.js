@@ -38,6 +38,7 @@ export const App = () => {
         setResult("");
         setGuess("");
         setGameStarted(true);
+        setAttempts(0);
       })
       .catch((err) => console.error(err));
   };
