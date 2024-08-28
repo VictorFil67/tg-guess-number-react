@@ -31,7 +31,7 @@ export const App = () => {
 
   const startGame = () => {
     axios
-      .post("/start_game")
+      .post("http://localhost:5000/start_game")
       .then(() => {
         setResult("");
         setGuess("");
@@ -42,7 +42,7 @@ export const App = () => {
 
   const submitGuess = () => {
     axios
-      .post("/guess", { guess: parseInt(guess) })
+      .post("http://localhost:5000/guess", { guess: parseInt(guess) })
       .then((response) => {
         setResult(response.data.result);
         if (response.data.result === "Число вгадано") {
