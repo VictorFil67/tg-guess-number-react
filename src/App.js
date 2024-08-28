@@ -71,7 +71,7 @@ export const App = () => {
         </>
       )}
       {result && <p>{result}</p>}
-      {attempts && <p>Ви зробили спроб: {attempts}</p>}
+      {attempts > 0 && <p>Ви зробили спроб: {attempts}</p>}
       <button onClick={handleClose}>Закрити гру</button>
     </div>
   );
