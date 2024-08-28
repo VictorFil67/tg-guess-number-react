@@ -9,6 +9,7 @@ export const App = () => {
   const [guess, setGuess] = useState("");
   const [result, setResult] = useState("");
   const [gameStarted, setGameStarted] = useState(false);
+  const [attempts, setAttempts] = useState(0);
 
   useEffect(() => {
     console.log(gameStarted);
@@ -37,7 +38,6 @@ export const App = () => {
         setResult("");
         setGuess("");
         setGameStarted(true);
-        console.log(gameStarted);
       })
       .catch((err) => console.error(err));
   };
@@ -47,9 +47,10 @@ export const App = () => {
       .post("http://localhost:5000/guess", { guess: parseInt(guess) })
       .then((response) => {
         setResult(response.data.result);
-        console.log(response);
+
         if (response.data.result === "Число вгадано!") {
           setGameStarted(false);
+          setAttempts(response.data.attempts);
         }
       })
       .catch((err) => console.error(err));
@@ -70,6 +71,7 @@ export const App = () => {
         </>
       )}
       {result && <p>{result}</p>}
+      {attempts && <p>Ви зробили спроб: {attempts}</p>}
       <button onClick={handleClose}>Закрити гру</button>
     </div>
   );
